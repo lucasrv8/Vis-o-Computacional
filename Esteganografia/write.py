@@ -11,7 +11,7 @@ if(nameImg[1] == "ppm"):
 else:
     tipo = -1
 
-#carregou a imagem
+#Carrega a imagem
 img = cv2.imread("./image/" + nameImg[0] + "." + nameImg[1], tipo)
 
 #Tamnho da imagem
@@ -25,14 +25,13 @@ xAux = 0
 print("Insira a menssagem que deseja gravar na imagem: ")
 msg = input()
 msg = msg + "/"
+
 #Mascara
 masc = 1
 masc = masc << 7
 mascAux = 1
 
 aux = 0
-#Converte o char para binario
-#print(bin(ord(msg[0])))
 
 #Executa enquanto tiver menssagem
 for j in range(len(msg)):
@@ -41,10 +40,10 @@ for j in range(len(msg)):
     for i in range(8):
         #Pega um bit da letra
         bit = byte & masc
-        #Gambiarra para para pegar o bit impar e não o numero par
+        #Gambiarra para pegar o bit impar e não o numero par
         if(bit % 2 == 0 and bit != 0):
             bit = bit +1
-        #se o bit par verifica o bit menos significativo da imagem
+        #se o bit par, verifica o bit menos significativo da imagem
         if((bit % 2) == 0):
             #Pega o bit menos significativo da imagem
             if(nameImg[1] == 'ppm'):
@@ -59,12 +58,11 @@ for j in range(len(msg)):
                     img[xAux,yAux] += 1
         #Se o bit for impar, compara com o bit da imagem
         elif((bit % 2) != 0):
-            #print("Bit é impar")
             if(nameImg[1] == 'ppm'):
                 byteImg = img.item(xAux,yAux, aux) & mascAux
             else:
                 byteImg = img.item(xAux,yAux) & mascAux
-            #Se o bit da imagem dor par, soma um, se não não faz nada
+            #Se o bit da imagem for par, soma um, se não não faz nada
             if((byteImg % 2) == 0):
                 if(nameImg[1] == 'ppm'):
                     img[xAux,yAux, aux] += 1
@@ -90,4 +88,4 @@ for j in range(len(msg)):
     masc = 1
     masc = masc << 7
 cv2.imwrite("./image/out." + nameImg[1], img)
-print("Mensagem gravada com sucesso na imagem!")
+print("Menssagem gravada com sucesso na imagem!")

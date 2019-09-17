@@ -20,14 +20,14 @@ y = img.shape[1]
 xAux = 0
 yAux = 0
 
-#mascara
+#Mascara
 masc = 1
 
-#messagem
+#Messagem
 msg = ""
 msgAux = 0
 
-#condição para ler a msg
+#Condição para ler a menssagem
 roda = True
 aux = 0
 while(roda):
@@ -37,31 +37,31 @@ while(roda):
         else:
             byte = img[xAux, yAux]
         bit = byte & masc
-        #Verifica se é impar, se for move um bit para esquerda e incrementa 1
+        #Verifica se é impar, se for, move um bit para esquerda e incrementa 1
         if(bit % 2 != 0):
             msgAux = msgAux << 1
             msgAux += 1
-        #se for par par, apenas move o bit para esquerda colocando zero
+        #Se for par, apenas move o bit para esquerda colocando zero
         else:
             msgAux = msgAux << 1
         if(nameImg[1] == 'ppm'):
             if(aux == 2): 
                 aux = 0
-                #pega o byte seguinte
+                #Pega o byte seguinte
                 yAux += 1
             else:
                 aux += 1
         else:
             yAux += 1
-        #condição para incremetar x
+        #Condição para incremetar x
         if(yAux == y):
             xAux += 1
             yAux = 0
-    #condição de parada        
+    #Condição de parada        
     if(str(chr(msgAux)) == '/'):
         roda = False
         msgAux = 0
-    #Forma a msg
+    #Forma a menssagem
     msg =  msg + str(chr(msgAux))
     msgAux = 0
 print("A frase codificada na imagem é: " + msg)
