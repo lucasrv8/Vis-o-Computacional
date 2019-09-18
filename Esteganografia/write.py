@@ -21,7 +21,7 @@ y = img.shape[1]
 yAux = 0
 xAux = 0
 
-#Menssagem
+#Mensagem
 print("Insira a menssagem que deseja gravar na imagem: ")
 msg = input()
 msg = msg + "/"
@@ -33,7 +33,7 @@ mascAux = 1
 
 aux = 0
 
-#Executa enquanto tiver menssagem
+#Executa enquanto tiver mensagem
 for j in range(len(msg)):
     byte = ord(msg[j])
     #Lê o caracter bit a bit e grava em um byte da imagem, no bit menos significativo
@@ -88,4 +88,4 @@ for j in range(len(msg)):
     masc = 1
     masc = masc << 7
 cv2.imwrite("./image/out." + nameImg[1], img)
-print("Menssagem gravada com sucesso na imagem!")
+print("Mensagem gravada com sucesso na imagem!")
