@@ -27,7 +27,7 @@ masc = 1
 msg = ""
 msgAux = 0
 
-#Condição para ler a menssagem
+#Condição para ler a mensagem
 roda = True
 aux = 0
 while(roda):
@@ -61,7 +61,7 @@ while(roda):
     if(str(chr(msgAux)) == '/'):
         roda = False
         msgAux = 0
-    #Forma a menssagem
+    #Forma a mensagem
     msg =  msg + str(chr(msgAux))
     msgAux = 0
 print("A frase codificada na imagem é: " + msg)
